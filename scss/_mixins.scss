@@ -1,0 +1,15 @@
+@mixin mobile {
+  @media only screen and (max-width: 1119px) {
+    @content;
+  }
+}
+@mixin desktop {
+  @media only screen and (min-width: 1120px) {
+    @content;
+  }
+}
+
+@mixin fSize ($font-size, $margin){
+  font-size: $font-size;
+  margin: $margin;  
+}

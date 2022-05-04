@@ -1,0 +1,16 @@
+.btn{
+   
+   border-radius: 2em;
+   padding: 1.5em 0;
+   color: white;
+   font-weight: 600;
+   font-family: $font-open-sans;
+}
+.btn--primary {
+background-color: $color-primary;
+   box-shadow: 5px 10px 14px #07ACE629;
+}
+.btn--large {
+   width: 100%;
+   max-width: 27em;
+}

@@ -1,0 +1,147 @@
+.pricing {
+
+   h2{
+      font-size:3em;
+   }
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   padding: 5em 0;
+
+   // .pricing__boxes
+   &__boxes {
+   max-width:25em; 
+   @include desktop {
+      display: flex;
+      flex-direction: row;
+      justify-content:center;
+      align-items:center;
+   }
+   }
+
+   // .pricing__box
+@for $i from 1 to 4 {
+   &__box:nth-child(#{$i}){
+      border: 1px solid map.get($circle,fr#{$i});
+      border-radius:1.2em;
+      margin: 3.5em;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      padding:2em;
+      @include desktop {
+         margin: 0;
+         padding: 0 5em;
+      }
+   }  
+}
+
+@for $i from 1 to 4 {
+   &__box:nth-child(#{$i}) [class*='btn']{
+      background-color:map.get($circle,fr#{$i});
+      display: flex;
+      align-items: center;
+      justify-content: center;     
+   }   
+}
+
+@for $i from 1 to 4 {
+   &__box:nth-child(#{$i}) [class*='pricing__price']{
+      color:map.get($circle,fr#{$i});
+   }
+}
+&__box {
+   &:nth-child(2) {
+      margin: 2em;
+      box-shadow: 5px 10px 27px #07ACE629;
+      @include desktop {
+         padding: 1em 6em;
+      }
+   }
+}
+   & [class*='btn']{
+   width:150px;
+   height:50px;
+   padding: 0;
+   position: absolute;
+   bottom: -25px;
+   }
+
+   // .pricing__details
+   &__details {
+      display: flex; 
+      @include desktop {
+         display: flex;
+         flex-direction: column;
+         margin-bottom: 2em;
+      }
+   }
+
+&__descr{
+   //font-size:20px;
+   display: flex;
+   flex-direction:column;
+   align-items: center;
+   justify-content:center;
+   flex-grow: 1;
+   margin-right: 1em;
+   @include desktop {
+      margin: 2em 1em 3em 1em;
+
+   }
+}
+
+   // .pricing__type
+   &__type {
+      font-size: 1.25em;
+      font-weight: 700;
+      font-family: $font-raleway;
+   }
+
+   // .pricing__price
+   &__price {
+      font-family:$font-open-sans;
+      font-size:3em;
+      font-weight: 300;
+      margin: .2em 0;
+   }
+
+   // .pricing__item
+   &__item {
+      display: flex;
+      font-size:14px;
+      align-items: center;
+      margin-bottom: 2em;
+      font-family: $font-open-sans;
+      white-space: nowrap;     
+   &:not(.pricing__item--not) {
+      &::before{
+         content: '';
+            background: url("../assets/Checkmark-1.svg");
+            background-size: contain;
+            background-repeat: no-repeat;
+            padding: .5em; 
+            margin-right: 1em;                 
+      }
+   }
+}
+
+   // .pricing__item--not
+&__item--not {
+   &:before{
+      content:'';
+      background: url('../assets/Close.svg');
+      background-repeat: no-repeat;
+      background-size: contain;
+      padding: .5em;
+      margin-right: 1em;
+   }   
+}
+   // .pricing__limited
+   &__limited {
+      font-size: 12px;
+      font-weight: bold;
+   }
+}

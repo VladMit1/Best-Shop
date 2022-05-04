@@ -1,3 +1,345 @@
-p{
-   color: red;
+@use "sass:map";
+
+@import 'colors';
+@import 'mixins';
+@import 'reset';
+@import 'fonts';
+@import 'normalize';
+@import 'buttons';
+@import 'maps';
+@import 'pricing';
+@import 'contact';
+@import 'footer';
+@import 'headerNav';
+@import 'calculator';
+
+
+
+body{
+	min-width: 375px;
+	margin: 0 auto;
+}
+body._lock{
+	overflow: hidden;
+}
+.opening {
+	&__content {
+		margin: 2em;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
+		justify-content: space-between;
+		
+	}
+	&__header {
+		@include fSize(2em, 0 0 1em 0);
+	}
+	&__heading {
+		@include fSize(1em, 0 0 2em 0);
+	}
+	&__image {
+		background: url('../assets/Background.png');
+		background-size:cover;
+		background-position:center ;
+		height: 15em;
+		margin-bottom: 3em;
+		@include desktop{
+			height: 30em;
+			width:100%;
+		}
+	}
+}
+.statistics {
+	font-size: 10px;
+	margin: 3.2em;
+	display: flex;
+	flex-direction: column;	
+	@include desktop{
+	height:50vh;
+	}
+.container{
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content:space-evenly;
+}
+
+ 	& *{
+		& :not(img){
+			margin-bottom: 1em;
+		}
+		
+	}
+	&__title{
+		font-size: 3em ;
+		text-align: center;
+	}
+		&__container {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			@include desktop {
+				display: flex;
+				flex-direction: row;
+				justify-content: space-evenly;
+			}
+		}
+		&__single {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			text-align: center;
+			
+	}
+		@for $i from 1 to 4 {
+			&__single:nth-of-type(#{$i}) .statistics__circle::before{
+				content: '';
+				background-color: map.get($circle, fr#{$i} );
+				padding: 3em;
+				margin: 1.6em;
+				border-radius: 3em;
+				position: relative;							
+			}			
+		}
+	&__circle{
+		display: flex;	
+		justify-content: center;
+		align-items: center;			
+		img{
+			position: absolute;
+			transform: translate(50%)
+		}
+	}
+		&__number {
+			font-size: 2em;
+			font-weight: 800;
+			letter-spacing: .2em;
+		}
+		&__description {
+			font-size: 1.7em;
+			color: $color-grey;
+		}
+}
+
+//benefits
+
+.benefits {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	background: $color-light-grey;
+	padding: 1em;
+	@include desktop {
+		padding: 5em 10em;
+	}
+	
+
+	&__container{
+		
+		display: flex;
+		flex-direction: column;
+		min-width: 370px;
+		max-width: 370px;
+		@include desktop {
+			max-width:none;
+			min-width: 1120px;
+		}		
+	}
+	&__text {
+		margin: 2em;
+		padding: 0;				
+		@include desktop {
+			width: 100%;
+			display: flex;
+			flex-direction: column;
+			justify-content:space-evenly;
+		}
+
+		.benefits__title {
+			font-size: 2em;
+			margin-bottom: 1em;
+			@include desktop {
+				margin: 0;
+			}
+		}
+	
+		.benefits__description {
+			font-size: .9em;
+			font-family: $font-open-sans;
+			line-height: 1.75em;
+			padding-right: 1em;			
+		}
+	}
+		.benefits__single{
+			box-sizing: unset;
+			@include desktop {
+			@for $i from 1 to 3 {
+				&:nth-child(#{$i}) .benefits__description:after{
+						content: " ";
+						display: block;
+						border-bottom: 4px solid map.get($circle,fr#{$i});
+						margin-top: 2em;
+						width:80%;
+						
+				}
+			}
+		}
+			max-width:1080px;
+		&:first-child{
+			@include desktop {
+				display: flex;
+				flex-direction: row-reverse;
+				min-width:1080px;
+				
+			}
+			
+			@include desktop {
+				display: flex;
+				flex-direction: row-reverse;
+				
+			}
+		}
+			margin: 1em;
+			padding: 2em 0;
+			background: $color-white;
+			@include desktop {
+				display: flex;
+				flex-direction: row;
+				height: 20em;
+			}
+		}
+		.image__contener {
+			box-sizing:unset;
+				padding: 0em 3em;				
+				@include desktop {
+					width: 100%;
+					position: relative;
+				}
+		}
+		
+		@for $i from 1 to 4 {
+			.benefits__image#{$i}{
+				background: map.get($images, img#{$i} );
+				padding: 5em;
+				background-repeat: no-repeat;
+				background-size: contain;
+				background-position: center;
+				position: relative;
+				margin: 1em;
+			}
+		}
+			.benefits__single--notebook {
+				position: relative;
+				z-index: 0;
+			}
+			.benefits__image1{
+				box-sizing: unset;
+				@include desktop {
+					height: 60%;
+					display: block;
+					
+				}
+			&::before{
+				content: '';
+				padding: 3em;
+				background: $color-redish;
+				position: absolute;
+				border-radius: 2.5em;
+				top: 2em;
+				right: -2.5em;
+				transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0) translate(-50%);
+				z-index: -1;
+				@include desktop{
+					padding: 6em;
+					top:5em;
+					right: -4em;
+				}
+			}
+			}
+		.benefits__single--phone{
+			z-index: 0;	
+		}
+.benefits__image2{
+	left:1em;
+	@include desktop {
+		left: 0;
+		padding: 0;
+		min-height:100%;
+		min-width:100%;
+	}
+	&::before{
+	content: '';
+	padding: 5em;
+	background: $color-primary;
+	position: absolute;
+	border-radius: 5em;
+	z-index: -1;
+	top: -1em;
+	left: 0.5em;
+	@include desktop {
+		padding: 10em;
+		border-radius: 10em;
+		left:1em;
+	}
+}
+}
+	.benefits__double{
+		@include desktop {
+
+		}
+		.benefits__single--solo{
+			display:flex;
+			flex-direction: column-reverse;
+			padding: 0;
+			position: relative;
+			z-index: 0;
+			background-color: $color-light-grey;
+			@include desktop {
+				display: flex;
+			flex-direction: row-reverse;
+			}
+			.benefits__text{
+				background-color: $color-white;
+				margin: 0;
+				padding: 2em;
+				@include desktop {
+				.benefits__description {
+					&::after {
+						content: " ";
+						display: block;
+						border-bottom: 4px solid $color-green;
+						
+					}
+				}
+			}
+			}
+
+			
+
+			.image__contener{
+				padding: 0;
+			}
+			.benefits__image3 {
+				top: 2em;
+				left: -2em;
+				margin: 0;
+				padding: 6em;
+				@include desktop {
+					margin-left: 3em;
+					padding: 10em;
+				}
+				&::before {
+					content: '';
+					background: $color-green;
+					position: absolute;
+					height: 100%;
+					width: 100%;
+					top: -2em;
+					left: 2em;
+					z-index: -1;
+				}
+			}
+		}
+	}
 }

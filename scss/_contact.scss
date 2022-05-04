@@ -1,0 +1,150 @@
+.contact {
+   display: flex;
+   flex-direction: column;
+   margin: 0 2em;
+   max-width:900px;
+   // .contact__column
+   @include desktop{
+   flex-direction: row;
+   margin: 5em auto;
+   padding:5em 0;
+   }
+
+
+   &__column {
+      width: 100%;
+   }
+
+   // .contact__title
+
+   &__title {
+      font-size:2.5em;
+      margin-bottom: .2em;
+      white-space: nowrap;
+      @include desktop{
+         font-size:3em;
+      }
+   }
+
+   // .contact__instruction
+
+   &__instruction {
+      font-family: $font-open-sans;
+      margin-bottom: 1em;
+   }
+
+   // .contact__details
+
+   &__details {
+      display: flex;
+      flex-direction: column;
+      margin:2em 0;
+      @include desktop {
+         flex-direction: row;
+         & a:nth-child(2){
+            margin-left: 1em;
+         }
+      }
+   }
+   .button{
+      font-size:.8em;
+      display: flex;
+      justify-content:flex-end;
+   }
+   .btn--primary {
+      display: flex;
+      border: none;
+      padding: 1rem 5.5rem;
+      margin-bottom: 3rem;
+   }
+}
+.details {
+
+   // .details__item
+
+   &__item {
+      color:$color-grey;
+      font-family: $font-open-sans;
+      font-weight: 500;
+      margin-bottom: .5em;
+   }
+}
+
+.form {
+
+   // .form__field
+
+   &__field {
+      display: flex;
+      flex-direction: column;
+      
+   }
+
+   // .form__label
+
+   &__label {
+      font-size: 0.7em;
+      margin-bottom: 1em;
+      text-transform: uppercase;
+      letter-spacing: .2em;
+      color:$color-primary;
+      font-weight:600;
+   }
+
+   // .form__input
+
+   &__input {
+      margin-bottom: 2em;
+      border: none;
+      border-bottom: 1px solid $color-grey;
+   }
+
+   // .form__checkbox
+
+   &__checkbox {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 1em;
+   }
+}
+input[type='checkbox']{
+   display:none;
+}
+.checkbox {
+   background-color:$color-white;
+margin: 0 .5em;
+padding: 12px;
+border: 1px solid $color-dark-grey;
+border-radius:.3em;
+position: relative;
+display: flex;
+justify-content:center;
+align-items: center;
+   &::before{
+      content: '';
+      position: absolute;
+      background: url("../assets/Checkmark.svg");
+      background-size: contain;
+      background-repeat: no-repeat;
+      padding:.5em;
+      opacity: 0;   
+   }
+}
+input[type='checkbox']:checked +.checkbox::before{
+   opacity: 1;
+}
+
+.consent {
+
+&__text {
+   font-family: $font-open-sans;
+   font-size: .75em;
+   color: $color-dark-grey;
+   line-height:1.5em;
+
+}
+
+
+}
+
+
