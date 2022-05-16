@@ -1,3 +1,8 @@
+const h1 = document.createElement("h1");
+h1.innerText = "Hello World!";
+document.querySelector("#app").append(h1);
+
+
 
 // burger menu
 
@@ -42,36 +47,20 @@ if (allSections.length > 0) {
 //Calculator------------------------------------------------
 
 const calcSum = document.querySelector(".calc__summary ul");
-const setProducts = document.querySelector("#products");
 const choosePack = document.querySelector(".calc__select");
-const choseVal = choosePack.children[1];
-const packageV = document.querySelector("#package");
 const accountingCheck = document.querySelector('#accounting');
 const terminalCheck = document.querySelector('#terminal');
 const totalPr = document.querySelector(`#total-price`);
 const calcSumbmn = document.querySelectorAll('.calc__summary .item__price span');
+
 class Calculator{
    constructor(val,child,sell) {
       this.val = val;
       this.child = child;
       this.sell = sell;
-      
-   };
-   onChange(event) {
-      this.inputValue = event.target.value;
-      const id = eval(`calcSum.children[${(this.child)}]`);
-      const mult = this.inputValue * this.sell;
-         if (this.inputValue==0) {
-            id.style.display = 'none'; 
-            totaly();
-      } else {
-            id.style.display = 'block';
-            id.children[1].innerText = `${this.inputValue} * $${this.sell}`;
-            id.children[2].children[0].innerText = `${mult}`;
-            totaly();
-      };      
    };
 };
+
 class Checkbox extends Calculator{
    constructor(val, child, sell) {
       super(val, child, sell);
@@ -84,55 +73,73 @@ class Checkbox extends Calculator{
          } else {
             id.style.display = 'block';
             id.children[1].children[0].innerText = `${this.sell}`;
-            totaly();
-            
+            totaly();            
          };         
       });
    };
 };
+
 class Summary extends Calculator{
    constructor(val, child,sell) {
       super(val, child,sell);
       this.val.onchange = this.onChange.bind(this);
    };
+   onChange(event) {
+      this.inputValue = event.target.value;
+      const id = eval(`calcSum.children[${(this.child)}]`);
+      const mult = this.inputValue * this.sell;
+      if (this.inputValue != 0) {
+         id.style.display = 'block';
+         id.children[1].innerText = `${this.inputValue} * $${this.sell}`;
+         id.children[2].children[0].innerText = `${mult}`;
+            
+         totaly();
+      } else {
+         id.style.display = 'none'; 
+         id.children[2].children[0].innerText = 0;
+         totaly();
+      };     
+   };
 };
-choosePack.addEventListener('click', function (e) {
-   choosePack.classList.toggle('open');   
-   this.inputValue = e.target.innerText;
-   choosePack.children[0].innerText = `${this.inputValue}`;
-   if (this.inputValue==='Basic') {
-      this.sell = 0;
-      calcSum.children[2].style.display = 'block';
-      calcSum.children[2].children[1].innerText = `${this.inputValue}`;
-      calcSum.children[2].children[2].children[0].innerText = `${this.sell}`;
-      totaly();
+
+class Package extends Calculator {
+   constructor(val, child, sell) {
+      super(val, child, sell);
+      const id = eval(`calcSum.children[${(this.child)}]`);
+      this.val.addEventListener('click', function (e) {
+         choosePack.classList.toggle('open');
+         this.inputValue = e.target.innerText;
+         choosePack.children[0].innerText = `${this.inputValue}`;
+         if (this.inputValue === 'Basic' || this.inputValue === 'Professional' || this.inputValue === 'Premium') {
+            if (this.inputValue === 'Professional') {
+               this.sell = 25;
+            }else if (this.inputValue === 'Premium') {
+               this.sell = 60;
+            } else {
+               this.sell = 0;
+            }
+            id.style.display = 'block';
+            id.children[1].innerText = `${this.inputValue}`;
+            id.children[2].children[0].innerText = `${this.sell}`;
+            totaly();
+         }
+      });
    };
-   if (this.inputValue==='Professional') {
-      this.sell = 25;
-      calcSum.children[2].style.display = 'block';
-      calcSum.children[2].children[1].innerText = `${this.inputValue}`;
-      calcSum.children[2].children[2].children[0].innerText = `${this.sell}`;
-      totaly();
-   };
-   if (this.inputValue==='Premium') {
-      this.sell = 60;
-      calcSum.children[2].style.display = 'block';
-      calcSum.children[2].children[1].innerText = `${this.inputValue}`;
-      calcSum.children[2].children[2].children[0].innerText = `${this.sell}`;
-      totaly();
-   };
-});
-const prod = new Summary(document.querySelector("#products"), 0,0.5);
-const order = new Summary(document.querySelector("#orders"), 1, 0.25);
-const checkBox = new Checkbox(accountingCheck, 3, 5);
-const checkBox1 = new Checkbox(terminalCheck, 4, 10);
+};
+
 totaly = () => {
-const arr = [];
+   const arr = [];
    calcSumbmn.forEach(element => {
       const result = element.innerText;
-         arr.push(+result);
+      arr.push(+result);
    });
    const res = arr.reduce((a, b) => a + b);
    totalPr.style.display = 'block';
    totalPr.innerText = `Total: $ ${res}`;
 };
+
+const getProducts = new Summary(document.querySelector("#products"), 0,0.5);
+const getOrders = new Summary(document.querySelector("#orders"), 1, 0.25);
+const checkPackage = new Package(choosePack, 2, 0);
+const checkBoxAccounting = new Checkbox(accountingCheck, 3, 5);
+const checkBoxTerminal = new Checkbox(terminalCheck, 4, 10);
