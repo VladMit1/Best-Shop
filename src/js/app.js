@@ -1,8 +1,5 @@
-const h1 = document.createElement("h1");
-h1.innerText = "Hello World!";
-document.querySelector("#app").append(h1);
-
-
+import "../css/main.css";
+import '../scss/main.scss';
 
 // burger menu
 
@@ -44,14 +41,24 @@ if (allSections.length > 0) {
    };
 };
 
+const totaly = () => {
+   const arr = [];
+   calcSumbmn.forEach(element => {
+      const result = element.innerText;
+      arr.push(+result);
+   });
+   const res = arr.reduce((a, b) => a + b);
+   totalPr.style.display = 'block';
+   totalPr.innerText = `Total: $ ${res}`;
+};
 //Calculator------------------------------------------------
 
 const calcSum = document.querySelector(".calc__summary ul");
 const choosePack = document.querySelector(".calc__select");
 const accountingCheck = document.querySelector('#accounting');
 const terminalCheck = document.querySelector('#terminal');
-const totalPr = document.querySelector(`#total-price`);
 const calcSumbmn = document.querySelectorAll('.calc__summary .item__price span');
+const totalPr = document.querySelector(`#total-price`);
 
 class Calculator{
    constructor(val,child,sell) {
@@ -64,6 +71,7 @@ class Calculator{
 class Checkbox extends Calculator{
    constructor(val, child, sell) {
       super(val, child, sell);
+      
       const id = eval(`calcSum.children[${(this.child)}]`);
       this.val.addEventListener('change', () => {
          if (this.val.checked !== true) {
@@ -127,16 +135,7 @@ class Package extends Calculator {
    };
 };
 
-totaly = () => {
-   const arr = [];
-   calcSumbmn.forEach(element => {
-      const result = element.innerText;
-      arr.push(+result);
-   });
-   const res = arr.reduce((a, b) => a + b);
-   totalPr.style.display = 'block';
-   totalPr.innerText = `Total: $ ${res}`;
-};
+
 
 const getProducts = new Summary(document.querySelector("#products"), 0,0.5);
 const getOrders = new Summary(document.querySelector("#orders"), 1, 0.25);
