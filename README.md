@@ -1,0 +1,26 @@
+This is a solution to the [Time tracking dashboard website challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/time-tracking-dashboard-UIQ7167Jw). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
+
+## Screenshots :camera:
+
+![App Screenshot](src/assets/Screen/desktop-design.jpg)
+
+
+# Time tracking dashboard :space_invader:
+
+## Tech Stack :computer:
+- [React](https://pl.reactjs.org/)
+- [Styled-components](https://styled-components.com/)
+
+## Getting Started :mag:
+
+```bash
+git clone https://github.com/VladMit1/Create-reports.git
+```
+
+```bash
+npm install
+```
+
+```bash
+npm start
+```
