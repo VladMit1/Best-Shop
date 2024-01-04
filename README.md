@@ -7,7 +7,7 @@ This is a solution to the [Time tracking dashboard website challenge on Frontend
 
 # Time tracking dashboard :space_invader:
 
-## Tech Stack :computer:
+## Tech Stack 💻
 - [React](https://pl.reactjs.org/)
 - [Styled-components](https://styled-components.com/)
 
