@@ -2,7 +2,7 @@ This is a solution to the [Time tracking dashboard website challenge on Frontend
 
 ## Screenshots :camera:
 
-![App Screenshot](src/assets/Backgroud.png)
+![App Screenshot](src/assets/Background.png)
 
 
 # Time tracking dashboard :space_invader:
