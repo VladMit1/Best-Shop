@@ -6,7 +6,7 @@ This project is a solution to the [Time Tracking Dashboard challenge on Frontend
 
 ## Screenshots &#128248;
 
-![Application Screenshot](https://raw.githubusercontent.com/VladMit1/Best-Shop/main/src/assets/Background.png){width=50% height=50%}
+![Application Screenshot](https://raw.githubusercontent.com/VladMit1/Best-Shop/main/src/assets/Background.png)
 
 ## Tech Stack &#128187;
 
