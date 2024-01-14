@@ -14,17 +14,15 @@ This project is a solution to the [Time Tracking Dashboard challenge on Frontend
 - **Styled-components**
 - **Iconography**: Intuitive icons replace text for a cleaner and more user-friendly interface.
 
-## Getting Started &#128187;
+## Getting Started &#128640;
 
 To run the project locally, follow these steps:
 
 ```bash
 git clone https://github.com/VladMit1/Create-reports.git
-```
-```bash
+
 npm install
-```
-```bash
+
 npm start
 ```
 Feel free to explore and enhance this project! Your feedback and contributions are always welcome. 🌟
