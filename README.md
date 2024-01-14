@@ -1,20 +1,20 @@
-# Time Tracking Dashboard 🕰️
+# Time Tracking Dashboard &#128336;
 
 ## Overview
 
 This project is a solution to the [Time Tracking Dashboard challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/time-tracking-dashboard-UIQ7167Jw). It provides an opportunity to enhance coding skills by creating a realistic time tracking dashboard.
 
-## Screenshots 🖼️
+## Screenshots &#128248;
 
 ![Application Screenshot](https://raw.githubusercontent.com/VladMit1/Best-Shop/main/src/assets/Background.png)
 
-## Tech Stack 💻
+## Tech Stack &#128187;
 
 - **React**
 - **Styled-components**
 - **Iconography**: Intuitive icons replace text for a cleaner and more user-friendly interface.
 
-## Getting Started 🚀
+## Getting Started &#128187;
 
 To run the project locally, follow these steps:
 
