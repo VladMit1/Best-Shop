@@ -1,27 +1,27 @@
-This is a solution to the [Time tracking dashboard website challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/time-tracking-dashboard-UIQ7167Jw). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
+# Time Tracking Dashboard 🕰️
 
-## Screenshots &#x1F4F7;
+## Overview
 
-![App Screenshot](https://raw.githubusercontent.com/VladMit1/Best-Shop/main/src/assets/Background.png)
+This project is a solution to the [Time Tracking Dashboard challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/time-tracking-dashboard-UIQ7167Jw). It provides an opportunity to enhance coding skills by creating a realistic time tracking dashboard.
 
+## Screenshots 🖼️
 
-# Time tracking dashboard &#x1F47E;
+![Application Screenshot](https://raw.githubusercontent.com/VladMit1/Best-Shop/main/src/assets/Background.png)
 
-## Tech Stack &#x1F4BB;
+## Tech Stack 💻
 
-- [React](https://pl.reactjs.org/)
-- [Styled-components](https://styled-components.com/)
+- **React**
+- **Styled-components**
+- **Iconography**: Intuitive icons replace text for a cleaner and more user-friendly interface.
 
-## Getting Started &#x1F50D;
+## Getting Started 🚀
+
+To run the project locally, follow these steps:
 
 ```bash
 git clone https://github.com/VladMit1/Create-reports.git
-```
-
 ```bash
 npm install
-```
-
 ```bash
 npm start
-```
+Feel free to explore and enhance this project! Your feedback and contributions are always welcome. 🌟
