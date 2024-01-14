@@ -20,9 +20,11 @@ To run the project locally, follow these steps:
 
 ```bash
 git clone https://github.com/VladMit1/Create-reports.git
-
+```
+```bash
 npm install
-
+```
+```bash
 npm start
 ```
-Feel free to explore and enhance this project! Your feedback and contributions are always welcome. 🌟
+Feel free to explore and enhance this project! Your feedback and contributions are always welcome. &#11088;
